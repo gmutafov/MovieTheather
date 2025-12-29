@@ -11,9 +11,10 @@
 
     {% block extra_css %}{% endblock %}
 </head>
-<body class="bg-light">
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+<body class="bg-light d-flex flex-column min-vh-100">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="{% url 'movie-list' %}">🎬 Movie Theater</a>
 
@@ -32,12 +33,12 @@
     </div>
 </nav>
 
-<div class="container">
+<main class="container flex-grow-1 d-flex flex-column py-4">
     {% block content %}{% endblock %}
-</div>
+</main>
 
-<footer class="bg-dark text-light text-center py-3 mt-5">
-    <small>© {{ year|default:2025 }} Movie Theater</small>
+<footer class="bg-dark text-light text-center py-3">
+    <small>© 2025 Movie Theater</small>
 </footer>
 
 <script

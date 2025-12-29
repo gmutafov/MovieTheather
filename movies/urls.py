@@ -1,8 +1,11 @@
-from django.urls import path
-from .views import MovieListView, MovieDetailView
+from django.urls import path, include
+from .views import MovieListView, MovieDetailView, ProducerDetailView
 
 urlpatterns = [
-    path("movies/", MovieListView.as_view(), name="movie-list"),
-     path("movies/<int:pk>/", MovieDetailView.as_view(), name="movie-detail"),
+    path("", MovieListView.as_view(), name="movie-list"),
+    path("producers/<int:pk>/", ProducerDetailView.as_view(), name="producer-detail"),
+    path("<int:pk>/", include([
+        path("details/", MovieDetailView.as_view(), name="movie-detail"),
+    ])),
 
 ]
